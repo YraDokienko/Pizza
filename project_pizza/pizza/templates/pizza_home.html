@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pizzas</title>
-    <style>
-   body { background:  #053f38; color: #93baba; }
-  </style>
-</head>
-<body>
+{% extends "index.html"  %}
+{% block title %} Pizzas {% endblock %}
+{% block h1 %} Список пицц {% endblock %}
+{% block application %}
 
-<h1><em> Список пицц </em></h1>
-    <hr color="red">
-
+    <p><h3> Количество = {{data}} </h3></p>
+    <p><h5>{{list}}</h5></p>
+    <hr color="#6F9110">
     <ul>
         {% for pizza in object_list %}
         <li> {{pizza.name}} : цена = {{pizza.price}} грн. <a href="/pizza-update/{{pizza.id}}/edit"> - edit </a> <p></li>
@@ -20,6 +14,6 @@
         <form action="/pizza-form-add/">
             <button> Добавить пиццу </button>
         </form>
-    <hr color="red">
-</body>
-</html>
+    <hr color="#6F9110">
+
+{% endblock %}
