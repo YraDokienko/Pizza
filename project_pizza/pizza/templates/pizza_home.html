@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzas</title>
+    <style>
+   body { background:  #053f38; color: #93baba; }
+  </style>
+</head>
+<body>
+
+<h1><em> Список пицц </em></h1>
+    <hr color="red">
+
+    <ul>
+        {% for pizza in object_list %}
+        <li> {{pizza.name}} : цена = {{pizza.price}} грн. <a href="/pizza-update/{{pizza.id}}/edit"> - edit </a> <p></li>
+        {%endfor%}
+    </ul>
+        <form action="/pizza-form-add/">
+            <button> Добавить пиццу </button>
+        </form>
+    <hr color="red">
+</body>
+</html>
