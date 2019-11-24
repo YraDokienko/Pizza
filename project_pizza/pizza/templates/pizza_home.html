@@ -8,7 +8,14 @@
     <hr color="#6F9110">
     <ul>
         {% for pizza in object_list %}
-        <li> {{pizza.name}} : цена = {{pizza.price}} грн. <a href="/pizza-update/{{pizza.id}}/edit"> - edit </a> <p></li>
+        {% if pizza.available %}
+        <li type="1">
+            <p>
+                {{pizza.name|upper}} : цена = {{pizza.price}} грн. (Наличие - {{pizza.available}})
+                <a href="/pizza-update/{{pizza.id}}/edit"> - edit </a>
+            </p>
+        </li>
+        {% endif %}
         {%endfor%}
     </ul>
         <form action="/pizza-form-add/">
